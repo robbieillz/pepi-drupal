@@ -1,0 +1,37 @@
+<?php
+
+function pepi_custom_entity_view($entity, $type, $view_mode, $langcode){
+	//dpm($entity);
+//	$tid = $entity->field_jewelry_type['und'][0]['tid'];
+//	if($tid == 5){
+//		unset($entity->content['product:field_available_sizes']);
+	
+//	}
+
+}
+
+function pepi_commerce_form_alter(&$form, &$form_state, $form_id){
+	
+	if ((strpos($form_id, 'commerce_cart_add_to_cart_form_') === 0)) {
+		$product_id = $form['product_id']['#value'];
+		$query = new EntityFieldQuery;
+
+		$query->entityCondition('entity_type', 'node', '=')
+		->propertyCondition('type', 'product_display')
+		->fieldCondition('field_product', 'product_id', $product_id, '=')
+		->fieldCondition('field_jewelry_type','tid', array(5,37), 'IN')
+	//	->fieldCondition('field_jewelry_type','tid', 37, '=')
+		->range(0, 1);
+
+		if ($result = $query->execute()) {
+		//	dpm($form);
+		   unset($form['line_item_fields']['field_ring_size']);	
+		}		
+	}
+
+	if($form_id == 'views_form_commerce_cart_form_default'){
+	//	dpm($form);
+	
+	}
+
+}

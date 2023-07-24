@@ -1,0 +1,49 @@
+diff --git a/rb_block.rules.inc b/rb_block.rules.inc
+index dcccb33..ab36d94 100644
+--- a/rb_block.rules.inc
++++ b/rb_block.rules.inc
+@@ -132,10 +132,42 @@ function rb_block_action_place_block($block, $region, $weight) {
+ function rb_block_action_disable_block($block) {
+   // Get block information.
+   $block_info = explode('-', $block);
+-  $disabled_block = block_load($block_info[0], $block_info[1]);
++  $disabled_block = _rb_block_block_load($block_info[0], $block_info[1]);
+ 
+   // Add the disabled block to a list in Drupal static, to allow it to be found
+   // from hook_block_list_alter.
+   $disabled_blocks = &drupal_static('rb_block_disabled');
+   $disabled_blocks[$disabled_block->bid] = $disabled_block;
+ }
++
++/**
++ * Copied from block_load and copied to consider the current theme
++ * 
++ * Loads a block object from the database.
++ *
++ * @param $module
++ *   Name of the module that implements the block to load.
++ * @param $delta
++ *   Unique ID of the block within the context of $module. Pass NULL to return
++ *   an empty block object for $module.
++ *
++ * @return
++ *   A block object.
++ */
++function _rb_block_block_load($module, $delta) {
++  global $theme;
++  
++  if (isset($delta)) {
++    $block = db_query('SELECT * FROM {block} WHERE module = :module AND delta = :delta AND theme = :theme', array(':module' => $module, ':delta' => $delta, ':theme' => $theme))->fetchObject();
++  }
++
++  // If the block does not exist in the database yet return a stub block
++  // object.
++  if (empty($block)) {
++    $block = new stdClass();
++    $block->module = $module;
++    $block->delta = $delta;
++  }
++
++  return $block;
++}
+\ No newline at end of file

@@ -1,0 +1,30 @@
+/* This file will hold styles that are loaded using the same media query as the narrow grid. */
+/* If you are using the default media queries provided by Omega, these styles will also
+ *  apply to the normal and widescreen layouts. You may override these styles in the normal
+ *  and widescreen CSS files as appropriate. */
+
+#zone-menu .grid-24 {
+  width: 720px!important;
+}
+
+#zone-postscript .block .content {
+  height:142px;
+}
+
+.navigation .primary-menu ul li a {
+  padding: 13px 10px;
+  font-size: .94em;
+}
+
+#zone-menu #block-views-exp-display-products-page {
+  padding-top: 10px;  
+}
+
+#zone-menu #block-views-exp-display-products-page .views-exposed-widgets {
+  margin-right: 0;
+  max-width: 180px;
+}
+
+#zone-menu #block-views-exp-display-products-page .form-text {
+
+}

@@ -1,0 +1,12 @@
+name = Login with email or username
+description = Allow users to log in with either their username OR email address using the same input box on the login form.
+core = 7.x
+files[] = login_emailusername.module
+
+
+; Information added by Drupal.org packaging script on 2017-07-08
+version = "7.x-1.2"
+core = "7.x"
+project = "login_emailusername"
+datestamp = "1499497145"
+

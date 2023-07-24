@@ -1,0 +1,5 @@
+name = Pepi Custom
+description = Custom code for Puzzle Rings by Pepi.
+package = Pepi Custom
+core = 7.x
+

@@ -1,0 +1,39 @@
+.view-collection-products .view-header .taxonomy-title, .view-collection-taxonomy-term .view-header .taxonomy-title {
+  font-size: 2em;
+}
+
+.container-24.zone-postscript .grid-8{
+  clear:none;
+  width:300px;
+}
+
+#zone-postscript .block {
+  height:300px;
+}
+
+#zone-menu .grid-24 {
+  width: 960px!important; 
+}
+
+#zone-menu #block-views-exp-display-products-page .views-exposed-widgets {
+  max-width: none;
+}
+
+.navigation .primary-menu ul li a {
+  padding: 12px 16px;
+  font-size: 1em;
+}
+
+.region-sidebar-first .block-facetapi.field_category .item-list {
+  height: auto;
+  overflow-y: auto;
+}
+
+div.messages.commerce-add-to-cart-confirmation .message-inner .view-confirm-message-product-display .view-content {
+  margin-left: 0;
+  width: auto;
+}
+
+.node-product-type .cloud-zoom-container .cloud-zoom-gallery-thumbs a.cloud-zoom-gallery.cloud-zoom-processed:first-child {
+  margin: 8px 8px 0 0!important;
+}

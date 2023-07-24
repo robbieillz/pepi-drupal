@@ -1,0 +1,9 @@
+.view-collection-products .view-header .taxonomy-title, .view-collection-taxonomy-term .view-header .taxonomy-title {
+  font-size: 2em;
+}
+
+#zone-postscript .block .content {
+    height:180px;
+    
+    
+    }
